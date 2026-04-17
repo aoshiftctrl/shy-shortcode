@@ -4,12 +4,20 @@
 .LSOverride
 Icon
 ._*
+.Spotlight-V100
+.Trashes
 
 # IDEs
 .idea/
 .vscode/
 *.sublime-project
 *.sublime-workspace
+.editorconfig
+.env
+.idea
+
+# DB
+*.sql.gz
 
 # PHP
 vendor/
