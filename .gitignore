@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# PHP
+vendor/
+composer.lock
+
+# Node (falls du mal Build-Tools addest)
+node_modules/
+npm-debug.log
+
+# Build artifacts
+/build/
+/dist/
+*.zip
