@@ -3,7 +3,7 @@
  * Plugin Name:       >Shy<
  * Plugin URI:        https://github.com/aoshiftctrl/shy-shortcode
  * Description:       Wandelt den Shortcode [shy] in einen weichen Trennstrich (U+00AD) um.
- * Version:           1.1.2
+ * Version:           1.1.3
  * Requires at least: 5.2
  * Requires PHP:      8.0
  * Author:            aoshiftctrl

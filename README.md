@@ -2,7 +2,7 @@
 
 WordPress-Plugin, das den Shortcode `[shy]` durch einen weichen Trennstrich (U+00AD) ersetzt.
 
-- **Version:** 1.1.2
+- **Version:** 1.1.3
 - **Voraussetzungen:** WordPress ≥ 5.2, PHP ≥ 8.0
 
 ```

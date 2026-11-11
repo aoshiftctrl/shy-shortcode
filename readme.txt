@@ -3,7 +3,7 @@ Contributors: aoshiftctrl
 Tags: shortcode, typografie, silbentrennung, shy
 Requires at least: 5.2
 Tested up to: 7.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 Requires PHP: 8.0
 License: CC BY-ND 4.0
 License URI: https://creativecommons.org/licenses/by-nd/4.0/
@@ -52,6 +52,9 @@ Im ausgegebenen HTML ist der weiche Trennstrich für Suchmaschinen und Screenrea
 
 == Changelog ==
 
+= 1.1.3 =
+* Plugin heißt jetzt „>Shy<“. Ordnername, Text Domain und Shortcode `[shy]` bleiben unverändert.
+
 = 1.1.2 =
 * Kein Fatal Error mehr neben einer Kopie der Version 1.1.0, unabhängig von der Ladereihenfolge.
 * Registrierung auf `init` statt beim Laden der Datei. Die Prüfung aus 1.1.0 lief zu früh und fand später registrierte Shortcodes nicht.
@@ -71,6 +74,9 @@ Im ausgegebenen HTML ist der weiche Trennstrich für Suchmaschinen und Screenrea
 * Erste Version.
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+Nur der Anzeigename ändert sich, Update unbedenklich.
 
 = 1.1.2 =
 Behebt einen Fatal Error bei doppelter Installation. Die Ausgabe ändert sich von `&shy;` zu `&#173;`.
