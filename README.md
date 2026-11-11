@@ -1,4 +1,4 @@
-# [shy] Shortcode (`shy-shortcode`)
+# >Shy< (`shy-shortcode`)
 
 WordPress-Plugin, das den Shortcode `[shy]` durch einen weichen Trennstrich (U+00AD) ersetzt.
 

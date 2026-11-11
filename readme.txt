@@ -1,4 +1,4 @@
-=== [shy] Shortcode ===
+=== >Shy< ===
 Contributors: aoshiftctrl
 Tags: shortcode, typografie, silbentrennung, shy
 Requires at least: 5.2
