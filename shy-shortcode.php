@@ -3,7 +3,7 @@
  * Plugin Name:       [shy] Shortcode
  * Plugin URI:        https://github.com/aoshiftctrl/shy-shortcode
  * Description:       Wandelt den Shortcode [shy] in einen weichen Trennstrich (U+00AD) um.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Requires at least: 5.2
  * Requires PHP:      8.0
  * Author:            aoshiftctrl
@@ -17,13 +17,10 @@ if (!defined("ABSPATH")) {
 	exit;
 }
 
-if (!function_exists("shy_shortcode_output")) {
-	function shy_shortcode_output(): string
-	{
-		return "&shy;";
+// Erst auf init und nach allen anderen: Plugins und Themes registrieren ihre
+// Shortcodes meist dort, vorher findet shortcode_exists() nichts.
+add_action("init", static function (): void {
+	if (!shortcode_exists("shy")) {
+		add_shortcode("shy", static fn(): string => "&#173;");
 	}
-}
-
-if (!shortcode_exists("shy")) {
-	add_shortcode("shy", "shy_shortcode_output");
-}
+}, PHP_INT_MAX);

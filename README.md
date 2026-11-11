@@ -1,26 +1,41 @@
-# [shy] Shortcode
+# [shy] Shortcode (`shy-shortcode`)
 
-> Lightweight WordPress plugin that registers a `[shy]` shortcode for inserting soft hyphens (`&shy;`) in block editor content.
+WordPress-Plugin, das den Shortcode `[shy]` durch einen weichen Trennstrich (U+00AD) ersetzt.
 
-## Why?
+- **Version:** 1.1.2
+- **Voraussetzungen:** WordPress ≥ 5.2, PHP ≥ 8.0
 
-German compound words like *Donaudampfschifffahrtsgesellschaft* break layouts. Soft hyphens let the browser decide where to break — invisible when not needed, hyphenated when the line demands it.
-
-## Usage
-
-    Donau[shy]dampf[shy]schiff[shy]fahrts[shy]gesellschaft
+```
+Donau[shy]dampf[shy]schiff[shy]fahrts[shy]gesellschaft
+```
 
 ## Installation
 
-1. Download the latest release ZIP
-2. Upload via *Plugins → Add New → Upload Plugin*
-3. Activate
+1. Ordner nach `wp-content/plugins/shy-shortcode` kopieren.
+2. Plugin unter „Plugins“ aktivieren.
 
-## Requirements
+## Aufbau
 
-- WordPress 5.2+
-- PHP 8.0+
+| Datei               | Inhalt                               |
+| ------------------- | ------------------------------------ |
+| `shy-shortcode.php` | Registrierung des Shortcodes         |
+| `readme.txt`        | Readme im WordPress.org-Format, FAQ  |
+| `assets/`           | Plugin-Icon                          |
 
-## License
+### Funktionsweise
 
-CC BY-ND 4.0 See https://creativecommons.org/licenses/by-nd/4.0/.
+- Registriert wird in einem `init`-Callback mit Priorität `PHP_INT_MAX`. Andere Plugins und Themes registrieren ihre Shortcodes meist auf `init`. Erst danach findet `shortcode_exists()` sie, und ein bestehender Shortcode `shy` bleibt unangetastet.
+- Callback und Registrierung sind Closures. Es gibt keine benannte globale Funktion, die mit einer zweiten Kopie des Plugins kollidieren kann. Version 1.1.0 deklariert `shy_shortcode_output()` ohne Prüfung.
+- Ausgabe ist `&#173;` statt `&shy;`: Die numerische Entity ist auch in XML gültig.
+- In der Datenbank bleibt `[shy]` als Text stehen, ersetzt wird erst bei der Ausgabe.
+
+## Bekannte Einschränkungen
+
+- Wirkt nur dort, wo WordPress `do_shortcode()` aufruft: Beitrags- und Seiteninhalt (auch im Feed), Text- und Block-Widgets, Templates und Template-Parts von Block-Themes.
+- Wirkt nicht in Titeln, von Hand eingetragenen Auszügen, Menüeinträgen (klassisch und Navigation-Block) und Begriffsnamen. Dort steht `[shy]` wörtlich.
+- Automatische Auszüge laufen durch `strip_shortcodes()`, `[shy]` verschwindet dort ersatzlos.
+- Die WordPress-Suche findet das ganze Wort nicht, weil in der Datenbank `Donau[shy]dampf…` steht.
+
+## Lizenz
+
+CC BY-ND 4.0, siehe https://creativecommons.org/licenses/by-nd/4.0/.
